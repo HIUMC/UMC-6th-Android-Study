@@ -1,0 +1,17 @@
+android: id=”” → 고유 식별 아이디를 전역으로 설정한다.  하나의 파일 안에서 view 끼리의 상대적인 위치를 조정할 때 쓰이기도 하고 다른 파일에서 불러올 때 사용하기도 한다.
+
+android: layout_~ → 기본 설정값, view의 사이즈를 결정한다. textview의 경우에는 보통 wrap_content로 설정한다.
+
+app:layout_constraint~ → 강의의 말을 빌리자면 view의 위치에 속박을 거는 것이다. Top_toBottomof로 예를 들자면 설정하고 있는 view의 Top을 다른 view의 Bottom에 속박하는 것. end는 오른쪽 start는 왼쪽이다.
+
+android: layout_margin~ → margin(view와 view사이 거리)를 설정
+
+4. BottomNavigation 구현하기
+
+BottomNavigationView는 화면의 하단에 고정되며 fragment간의 이동을 가능하게 한다.
+
+원래는 res 밑에 navigation이라는 폴더가 있어서 거기서 설정할 수 있지만, 실습에서는 직접 구현했다.
+
+BottomNavigation뷰를 구현하기 위해서는 data_binding 모듈을 import해야 한다. 이를 위해서는 build.gradle.kt와 MainActivity를 다음과 같이 수정해야 한다.
+
+앱이 실행되면 manifest를 먼저 보게 되는데 되고 여기서 Application/activity/android:name에 설정된 MainActivity를 실행한다. MainActivity에서는 OnCreate가 우선적으로 실행되고, OnCreate에 있는 initBottomNavigation()를 실행하게 되어 결과적으로 BottomNavigation이 실행된다. 이후 private fun initBottomNavigation()에 BottomNavigation의 이벤트를 설정한다.
