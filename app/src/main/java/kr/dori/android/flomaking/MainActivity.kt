@@ -10,31 +10,27 @@ import kr.dori.android.flomaking.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-
-//    private var song:Song = Song()
-//    private var gson: Gson = Gson()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setTheme(R.style.Theme_FLO)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        inputDummySongs()
-//        inputDummyAlbums()
+        val song = Song(binding.mainMiniplayerTitleTv.text.toString(),binding.mainMiniplayerSingerTv.text.toString())
+
+        binding.mainPlayerCl.setOnClickListener{
+//            startActivity(Intent(this, SongActivity::class.java))
+
+            val intent = Intent(this, SongActivity::class.java)
+            intent.putExtra("title", song.title)
+            intent.putExtra("singer", song.singer)
+            startActivity(intent) //여기서 오류 발생했음, 이미 실행 된 건데 두번 실행하면 ㅈ버그 발생!!! / python에서 __name__=__main__이 해결하는 문제와 비슷하다고 볼 수 있음
+        }
+
         initBottomNavigation()
-//        val song = Song(binding.mainMiniplayerTitleTv.text.toString(), binding.mainMiniplayerSingerTv.text.toString(),0,60,false)
 
-//        binding.mainPlayerCl.setOnClickListener {
-//            val editor = getSharedPreferences("song", MODE_PRIVATE).edit()
-//            editor.putInt("songId",song.id)
-//            editor.apply()
-//
-//            val intent = Intent(this,SongActivity::class.java)
-//            startActivity(intent)
-//        }
 
-//        Log.d("MAIN/JWT_TO_SERVER", getJwt().toString())
+
+        Log.d("song",song.title + song.singer)
 
     }
     private fun initBottomNavigation(){
