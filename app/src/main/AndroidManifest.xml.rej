@@ -1,0 +1,12 @@
+diff a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml	(rejected hunks)
+@@ -12,7 +12,9 @@
+         android:supportsRtl="true"
+         android:theme="@style/Theme.FloMaking"
+         tools:targetApi="31">
+-
++        <activity
++            android:name=".SongActivity"
++            android:exported="false" />
+         <activity
+             android:name=".MainActivity"
+             android:exported="true">
