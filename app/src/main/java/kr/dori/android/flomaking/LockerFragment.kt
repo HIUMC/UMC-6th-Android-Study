@@ -5,55 +5,38 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.google.android.material.tabs.TabLayoutMediator
+import kr.dori.android.flomaking.databinding.FragmentAlbumBinding
+import kr.dori.android.flomaking.databinding.FragmentLockerBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class LockerFragment : Fragment(){
+    lateinit var binding: FragmentLockerBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LockerFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class LockerFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private val information = arrayListOf("저장한 곡","음악 파일")
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_locker, container, false)
-    }
+    ): View?{
+        binding = FragmentLockerBinding.inflate(inflater, container, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LockerFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LockerFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+//        binding.albumBackIv.setOnClickListener {
+//            (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.main_frm,HomeFragment()).commitAllowingStateLoss()
+//        }
+
+        val lockerAdapter = LockerVPAdapter(this)
+        binding.lockerContentVp.adapter = lockerAdapter
+        TabLayoutMediator(binding.lockerContentTb, binding.lockerContentVp){
+                tab, position ->
+            tab.text = information[position]
+        }.attach()
+
+
+//        binding.songLalacLayout.setOnClickListener{
+//            Toast.makeText(activity,"LiLac", Toast.LENGTH_SHORT).show()
+//        }
+
+        return binding.root
     }
 }
