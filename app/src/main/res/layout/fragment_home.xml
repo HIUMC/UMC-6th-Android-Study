@@ -12,6 +12,7 @@
             android:id="@+id/home_pannel_background_iv"
             android:layout_width="match_parent"
             android:layout_height="430dp"
+            android:layout_marginTop="0dp"
             android:scaleType="centerCrop"
             android:src="@drawable/img_first_album_default"
             app:layout_constraintEnd_toEndOf="parent"
@@ -175,6 +176,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/home_pannel_background_iv" />
 
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/home_banner_vp"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginTop="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_pannel_background_iv" />
+
         <HorizontalScrollView
             android:id="@+id/home_daily_music_hs"
             android:layout_width="wrap_content"
@@ -188,6 +198,7 @@
             app:layout_constraintTop_toBottomOf="@+id/home_today_music_title_tv">
 
             <LinearLayout
+                android:id="@+id/realmadrid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -345,9 +356,13 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
             </LinearLayout>
 
+
         </HorizontalScrollView>
+
 
 
 
