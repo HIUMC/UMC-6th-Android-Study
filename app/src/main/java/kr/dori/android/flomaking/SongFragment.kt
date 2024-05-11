@@ -10,6 +10,7 @@ import kr.dori.android.flomaking.databinding.FragmentSongBinding
 class SongFragment : Fragment() {
 
     lateinit var binding: FragmentSongBinding
+    lateinit var song :
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -18,5 +19,9 @@ class SongFragment : Fragment() {
     ): View? {
         binding = FragmentSongBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    fun setPlayerStatus(isPlaying : Boolean){
+        song.
     }
 }
