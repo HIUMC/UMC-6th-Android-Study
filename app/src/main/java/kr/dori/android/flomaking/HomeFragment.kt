@@ -39,6 +39,7 @@ class HomeFragment : Fragment() {
         val homeAdapter = HomeVPAdapter(this)
         binding.homeContentVp.adapter = homeAdapter
 
+        binding.indicator.setViewPager(binding.homeContentVp)
 
         return binding.root
     }

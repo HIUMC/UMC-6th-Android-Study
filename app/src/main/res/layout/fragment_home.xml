@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+   >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,7 +21,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            app:ci_drawable="@drawable/black_radius"
+            app:ci_animator="@animator/scale_with_alpha"
+
+            app:ci_orientation="horizontal"
+            app:ci_gravity="center"
+            app:ci_height="7dp"
+            app:ci_width="7dp"
+            app:ci_margin="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_content_vp" />
+
 <!--        <ImageView-->
+
 <!--            android:id="@+id/home_pannel_background_iv"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="430dp"-->
@@ -134,14 +154,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="5dp"
             android:text="오늘 발매 음악"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/home_content_vp" />
+            app:layout_constraintTop_toBottomOf="@+id/indicator" />
         <ImageView
             android:id="@+id/home_today_music_title_btn_iv"
             android:layout_width="20dp"
@@ -157,35 +175,32 @@
             android:id="@+id/home_today_music_total_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:text="종합"
             android:textColor="#3F3FFF"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@id/home_today_music_domestic_tv"
-            app:layout_constraintTop_toBottomOf="@+id/home_content_vp" />
+            app:layout_constraintTop_toBottomOf="@+id/indicator" />
 
         <TextView
             android:id="@+id/home_today_music_domestic_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:text="국내"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@id/home_today_music_oversea_tv"
-            app:layout_constraintTop_toBottomOf="@+id/home_content_vp" />
+            app:layout_constraintTop_toBottomOf="@+id/indicator" />
 
         <TextView
             android:id="@+id/home_today_music_oversea_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:text="해외"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/home_content_vp" />
+            app:layout_constraintTop_toBottomOf="@+id/indicator" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/home_banner_vp"

@@ -55,9 +55,19 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation 'me.relax:circleindicator:2.1.6'
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("me.relex:circleindicator:2.1.6")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
 }
+
+
+
+
+
+
+
+
+
